@@ -1,0 +1,5 @@
+numpy
+notebook
+pandas
+matplotlib
+torch

@@ -1,0 +1,18 @@
+# Example for a Python-based project
+FROM python:3.9
+WORKDIR /app
+
+
+# Copy just the requirements.txt first to leverage Docker cache
+COPY requirements.txt /app/
+
+
+# Install Python Libraries listed in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+# Make port 8888 available to the world outside this container
+EXPOSE 8888
+
+# Run Jupyter Notebook when the container launches
+CMD ["jupyter", "notebook", "--ip='*'", "--port=8888", "--no-browser", "--allow-root"]
